@@ -20,3 +20,23 @@ public static void TestParseString()
     }
     Console.WriteLine(message);
 }
+
+// exmaple:
+//   how are you? /happy 
+//   /happy will replace the happy emoji with a smiley face icon
+//   /sad will replace the happy emoji with a sad face icon
+
+public static void TestParseEmoji()
+{
+    string str = "how are you? /happy";
+    var message = str.Replace("/happy", ":)");
+    message = message.Replace("/sad", ":(");
+    Console.WriteLine(message);
+}
+
+public static string CovertTagToEmojiFilePath(string tag)
+{
+    var emojiFilePath = 
+    tag = Regex.Replace(tag, @"\[(.*?)\]", "");
+    return 
+}
