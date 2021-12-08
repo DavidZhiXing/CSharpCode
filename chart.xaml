@@ -1,0 +1,25 @@
+<!-- create an xalm to draw bar with given data, and set the title of the bar chart -->
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+        xmlns:chart="clr-namespace:Microsoft.Phone.Controls.DataVisualization.Charting;assembly=Microsoft.Phone.Controls.Toolkit"
+        Title="Bar Chart">
+    <!-- create a bar series and set the data source of the series -->
+    <chart:BarSeries x:Name="series" ItemsSource="{Binding Source}"/>
+    <!-- create a title and set the text of the title -->
+    <chart:Title>{Binding Title}</chart:Title>
+    <!-- create a legend and set the alignment of the legend -->
+    <chart:Legend Alignment="Bottom" Orientation="Horizontal"/>
+    <!-- create a grid and set the horizontal and vertical lines to be visible -->
+    <chart:Grid HorizontalLinesVisibility="Visible" VerticalLinesVisibility="Visible"/>
+    <!-- create a bar chart area and set the series to be displayed in the chart area -->
+    <chart:BarChartArea>
+        <chart:Series>
+            <chart:BarSeries.ItemsSource>
+                <Collection x:TypeArguments="chart:BarDataPoint">
+                    <BarDataPoint Value="{Binding Value}" Category="{Binding Category}" />
+                </Collection>
+            </chart:BarSeries.ItemsSource>
+        </chart:Series>
+    </chart:BarChartArea>
+</Window>
