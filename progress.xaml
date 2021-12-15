@@ -1,0 +1,17 @@
+// create a xaml for the progress bar
+<ProgressBar x:Name="progressBar"
+             Width="200"
+             Height="20"
+             style="{StaticResource ProgressBarStyle}"
+             Value="{Binding Path=Progress}"
+             Maximum="{Binding Path=Maximum}"
+             IsIndeterminate="{Binding Path=IsIndeterminate}" />    // bind the progress bar to the progress property of the view model
+
+// style for the progress bar
+<Style x:Key="ProgressBarStyle" TargetType="ProgressBar">
+    <Setter Property="Foreground" Value="{StaticResource ProgressBarForeground}" />
+</Style>
+
+// static resource for the progress bar foreground
+<SolidColorBrush x:Key="ProgressBarForeground" Color="{StaticResource ProgressBarForegroundColor}" />
+<Color x:Key="ProgressBarForegroundColor" Color="{StaticResource ProgressBarForegroundColor}" />
