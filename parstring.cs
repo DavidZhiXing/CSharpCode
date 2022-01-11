@@ -40,3 +40,46 @@ public static string CovertTagToEmojiFilePath(string tag)
     tag = Regex.Replace(tag, @"\[(.*?)\]", "");
     return 
 }
+
+// take a element from the array and return the new array
+public static T[] GetElement<T>(T[] array, int index)
+{
+    var newArray = new T[array.Length - 1];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i < index)
+        {
+            newArray[i] = array[i];
+        }
+        else if (i > index)
+        {
+            newArray[i - 1] = array[i];
+        }
+    }
+    return newArray;
+}
+
+// take a element from the array and return the new array via linq
+public static T[] GetElement<T>(T[] array, int index)
+{
+    return array.Where((x, i) => i != index).ToArray();
+}
+
+// given a T array, return a new array with random elements
+public static T[] GetRandomElements<T>(T[] array)
+{
+    var newArray = new T[array.Length];
+    var random = new Random();
+    for (int i = 0; i < array.Length; i++)
+    {
+        var randomIndex = random.Next(0, array.Length);
+        newArray[i] = array[randomIndex];
+    }
+    return newArray;
+}
+
+// given a  sequence T array, return a new array with random sequence via linq
+public static T[] GetRandomElements<T>(T[] array)
+{
+    return array.OrderBy(x => Guid.NewGuid()).ToArray();
+}
