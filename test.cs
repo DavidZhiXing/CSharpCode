@@ -56,4 +56,9 @@ public class Client
     {
         _abstractProductB.Interact(_abstractProductA);
     }
+
+    // print current main ui thread id
+    
+
+
 }
